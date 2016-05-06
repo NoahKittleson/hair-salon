@@ -69,7 +69,7 @@ public class Stylist {
       String sql = "SELECT * FROM clients where stylistId=:stylistId";
       return con.createQuery(sql)
         .addParameter("stylistId", this.id)
-        .executeAndFetch(Review.class);
+        .executeAndFetch(Client.class);
     }
   }
 }
