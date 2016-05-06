@@ -52,29 +52,29 @@ public class StylistTest {
     assertTrue(Stylist.all().get(0).equals(myStylist));
   }
 
-  // @Test
-  // public void save_assignsIdToObject() {
-  //   Stylist myStylist = new Stylist("Su", "Afros");
-  //   myStylist.save();
-  //   Stylist savedStylist = Stylist.all().get(0);
-  //   assertEquals(myStylist.getId(), savedStylist.getId());
-  // }
-  //
-  // @Test
-  // public void find_findStylistInDatabase_true() {
-  //   Stylist myStylist = new Stylist("Su", "Afros");
-  //   myStylist.save();
-  //   Stylist savedStylist = Stylist.find(myStylist.getId());
-  //   assertTrue(myStylist.equals(savedStylist));
-  // }
-  //
+  @Test
+  public void save_assignsIdToObject() {
+    Stylist myStylist = new Stylist("Su", "Afros");
+    myStylist.save();
+    Stylist savedStylist = Stylist.all().get(0);
+    assertEquals(myStylist.getId(), savedStylist.getId());
+  }
+
+  @Test
+  public void find_findStylistInDatabase_true() {
+    Stylist myStylist = new Stylist("Su", "Afros");
+    myStylist.save();
+    Stylist savedStylist = Stylist.find(myStylist.getId());
+    assertTrue(myStylist.equals(savedStylist));
+  }
+
   // @Test
   // public void getClients_retrievesAllClientsFromDataBase_reviewsList() {
   //   Stylist myStylist = new Stylist("Su", "Afros");
   //   myStylist.save();
-  //   Client firstClient = new Client("Su rules", "yo but it totally does", myStylist.getId());
+  //   Client firstClient = new Client("Su", "one", myStylist.getId());
   //   firstClient.save();
-  //   Client secondClient = new Client("Su sucks", "naw jk", myStylist.getId());
+  //   Client secondClient = new Client("Su", "two", myStylist.getId());
   //   secondClient.save();
   //   Client[] tasks = new Client[] { firstClient, secondClient };
   //   assertTrue(myStylist.getClients().containsAll(Arrays.asList(tasks)));
