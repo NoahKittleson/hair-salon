@@ -11,11 +11,9 @@ public class Client {
   private Date appointment;
 
   public Client (String name, String appointment) {
-    //Timestamp timestamp = new Timestamp(0,0,0,0,0,0,0);
     try {
       SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
       this.appointment = dateFormat.parse(appointment);
-      //timestamp = new java.sql.Timestamp(parsedDate.getTime());
     }
     catch(Exception e) {
 
@@ -44,6 +42,34 @@ public class Client {
       return this.getName().equals(newClient.getName())
       && this.getId() == newClient.getId()
       && this.getAppointment().equals(newClient.getAppointment());
+    }
+  }
+
+  public static List<Client> all() {
+    String sql = "SELECT id, name, appointment FROM clients";
+    try (Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Client.class);
+    }
+  }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO clients (name, appointment) VALUES (:name, :appointment)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("name", this.name)
+        .addParameter("appointment", this.appointment)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+
+  public static Client find (int id) {
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients where id=:id";
+      Client client = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Client.class);
+      return client;
     }
   }
 
