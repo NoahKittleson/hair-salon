@@ -17,7 +17,7 @@ public class Client {
       this.appointment = dateFormat.parse(appointment);
     }
     catch(Exception e) {
-
+      this.appointment = new Date (92, 02, 30);
     }
     this.name = name;
     this.stylist_id = stylist_id;
@@ -29,6 +29,11 @@ public class Client {
 
   public Date getAppointment() {
     return appointment;
+  }
+
+  public String getDateAsString() {
+    DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+    return df.format(this.appointment);
   }
 
   public int getId() {

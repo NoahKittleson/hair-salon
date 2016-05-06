@@ -4,9 +4,26 @@ stylists.vtl
 
 <p>Specialty: $stylist.getSpecialty()</p>
 
-<h5>$stylist.getName()'s clients:</h5>
-<ul>
-  #foreach ($client in $stylist.getClients())
-    <li><a href="/">$client.getName()<a></li>
-  #end
-</ul>
+#if ($stylist.getClients().size() == 0)
+  <p>This person doesn't have any clients yet</p>
+#else
+  <h5>$stylist.getName()'s clients:</h5>
+  <ul>
+    #foreach ($client in $stylist.getClients())
+      <li>$client.getName() on $client.getDateAsString()</li>
+    #end
+  </ul>
+#end
+
+
+<form action='/stylists/$stylist.getId()' method='post'>
+  <div class="form-group">
+    <label for="name">Enter a client's Name:</label>
+    <input type= "text" class="form-control" id="name" name="name">
+  </div>
+  <div class="form-group">
+    <label for="date">Enter the date of the appointment as "yyyy-mm-dd":</label>
+    <input type= "text" class="form-control" id="date" name="date">
+  </div>
+  <button class="btn" type="submit">Submit</button>
+</form>
