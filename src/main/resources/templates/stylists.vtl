@@ -4,5 +4,5 @@ stylists.vtl
 
 <ul>
 #foreach ($stylist in $stylists)
-  <li><a href="/">$stylist.getName();<a></li>
+  <li><a href="/stylists/test/$stylist.getId()">$stylist.getName()<a></li>
 #end

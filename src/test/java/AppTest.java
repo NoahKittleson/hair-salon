@@ -49,4 +49,13 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/stylists");
     assertThat(pageSource()).contains("Mike");
   }
+
+  @Test
+  public void addNewStylistManually() {
+    goTo("http://localhost:4567/stylists/form");
+    fill("#name").with("Mike");
+    fill("#specialty").with("Mohawks");
+    submit(".btn");
+    assertThat(pageSource()).contains("Mike");
+  }
 }
