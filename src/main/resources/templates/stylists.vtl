@@ -1,0 +1,8 @@
+stylists.vtl
+
+<h1>Here are all our stylists:</h1>
+
+<ul>
+#foreach ($stylist in $stylists)
+  <li><a href="/">$stylist.getName();<a></li>
+#end

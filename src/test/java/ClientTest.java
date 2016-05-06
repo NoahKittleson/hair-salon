@@ -22,7 +22,7 @@ public class ClientTest {
 
   @Test
   public void Client_instantiatesCorrectly_true() {
-    Client myClient = new Client("Harold", "1999-01-01");
+    Client myClient = new Client("Harold", "1999-01-01", 1);
     assertEquals(true, myClient instanceof Client);
   }
 
@@ -33,14 +33,14 @@ public class ClientTest {
 
   @Test
   public void equals_returnsTrueIfFieldsAretheSame() {
-    Client firstClient = new Client("Harold", "1999-01-01");
-    Client secondClient = new Client("Harold", "1999-01-01");
+    Client firstClient = new Client("Harold", "1999-01-01", 1);
+    Client secondClient = new Client("Harold", "1999-01-01", 1);
     assertTrue(firstClient.equals(secondClient));
   }
 
   @Test
   public void equals_findsClientById() {
-    Client originalClient = new Client("Harold", "1999-01-01");
+    Client originalClient = new Client("Harold", "1999-01-01", 1);
     originalClient.save();
     Client copyClient = Client.find(originalClient.getId());
     assertEquals(copyClient.getAppointment(), originalClient.getAppointment());
