@@ -26,17 +26,17 @@ public class StylistTest {
     assertEquals(true, myStylist instanceof Stylist);
   }
 
-  //
-  // @Test
-  // public void Stylist_reviewInstantiesWithTitle_true() {
-  //   Stylist myStylist = new Stylist("Su", "Afros");
-  //   assertEquals("Killer Burger", myStylist.getName());
-  // }
-  //
-  // @Test
-  // public void all_emptyAtFirst() {
-  //   assertEquals(Stylist.all().size(), 0);
-  // }
+
+  @Test
+  public void Stylist_reviewInstantiesWithTitle_true() {
+    Stylist myStylist = new Stylist("Su", "Afros");
+    assertEquals("Su", myStylist.getName());
+  }
+  
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Stylist.all().size(), 0);
+  }
   //
   // @Test
   // public void equals_returnsTrueIfFieldsAretheSame() {
@@ -72,9 +72,9 @@ public class StylistTest {
   // public void getClients_retrievesAllClientsFromDataBase_reviewsList() {
   //   Stylist myStylist = new Stylist("Su", "Afros");
   //   myStylist.save();
-  //   Client firstClient = new Client("Killer Burger rules", "yo but it totally does", myStylist.getId());
+  //   Client firstClient = new Client("Su rules", "yo but it totally does", myStylist.getId());
   //   firstClient.save();
-  //   Client secondClient = new Client("Killer Burger sucks", "naw jk", myStylist.getId());
+  //   Client secondClient = new Client("Su sucks", "naw jk", myStylist.getId());
   //   secondClient.save();
   //   Client[] tasks = new Client[] { firstClient, secondClient };
   //   assertTrue(myStylist.getClients().containsAll(Arrays.asList(tasks)));

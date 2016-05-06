@@ -1,20 +1,21 @@
 import org.sql2o.*;
+import java.util.List;
 
 public class Stylist {
   private int id;
   private String name;
   private String specialty;
 
-  
+
   public Stylist (String name, String specialty) {
     this.name = name;
     this.specialty = specialty;
   }
-  //
-  // public String getName() {
-  //   return name;
-  // }
-  //
+
+  public String getName() {
+    return name;
+  }
+
   // public String getSpecialty () {
   //   return specialty;
   // }
@@ -23,12 +24,12 @@ public class Stylist {
   //   return id;
   // }
   //
-  // public static List<Stylist> all() {
-  //   String sql = "SELECT id, name, specialty FROM stylists";
-  //   try (Connection con = DB.sql2o.open()) {
-  //     return con.createQuery(sql).executeAndFetch(Stylist.class);
-  //   }
-  // }
+  public static List<Stylist> all() {
+    String sql = "SELECT id, name, specialty FROM stylists";
+    try (Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Stylist.class);
+    }
+  }
   //
   // @Override
   // public boolean equals(Object otherStylist) {
