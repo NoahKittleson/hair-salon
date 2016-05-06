@@ -32,26 +32,26 @@ public class StylistTest {
     Stylist myStylist = new Stylist("Su", "Afros");
     assertEquals("Su", myStylist.getName());
   }
-  
+
   @Test
   public void all_emptyAtFirst() {
     assertEquals(Stylist.all().size(), 0);
   }
-  //
-  // @Test
-  // public void equals_returnsTrueIfFieldsAretheSame() {
-  //   Stylist firstStylist = new Stylist("Su", "Afros");
-  //   Stylist secondStylist = new Stylist("Su", "Afros");
-  //   assertTrue(firstStylist.equals(secondStylist));
-  // }
-  //
-  // @Test
-  // public void save_savesIntoDatabase_true() {
-  //   Stylist myStylist = new Stylist("Su", "Afros");
-  //   myStylist.save();
-  //   assertTrue(Stylist.all().get(0).equals(myStylist));
-  // }
-  //
+
+  @Test
+  public void equals_returnsTrueIfFieldsAretheSame() {
+    Stylist firstStylist = new Stylist("Su", "Afros");
+    Stylist secondStylist = new Stylist("Su", "Afros");
+    assertTrue(firstStylist.equals(secondStylist));
+  }
+
+  @Test
+  public void save_savesIntoDatabase_true() {
+    Stylist myStylist = new Stylist("Su", "Afros");
+    myStylist.save();
+    assertTrue(Stylist.all().get(0).equals(myStylist));
+  }
+
   // @Test
   // public void save_assignsIdToObject() {
   //   Stylist myStylist = new Stylist("Su", "Afros");
